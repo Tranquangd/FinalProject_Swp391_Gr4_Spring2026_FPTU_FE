@@ -1,8 +1,9 @@
-import LoginModal from "./LoginModal";
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import authApi from "../../api/authApi";
+import LoginForm from "./LoginForm";
 
 export default function LoginContainer() {
   const [error, setError] = useState("");
@@ -17,13 +18,23 @@ export default function LoginContainer() {
 
     try {
       const res = await authApi.login(data);
-      login(res.data);
 
-      const role = res.data.user.systemRole;
+      const userData = {
+        ...res.data.user,
+        role: res.data.user.systemRole,
+        token: res.data.token,
+      };
+      login(userData);
 
-      if (role === "ADMIN") navigate("/admin");
-      else if (role === "LECTURER") navigate("/lecturer");
-      else navigate("/student");
+      
+
+      if (userData.role === "ADMIN") navigate("/admin");
+      else if (userData.role === "LECTURER") navigate("/lecturer");
+      else if (userData.role === "STUDENT") {
+  userData.isLeader
+    ? navigate("/student/leader")
+    : navigate("/student/member");
+}
 
       setShow(false);
     } catch {
@@ -34,6 +45,6 @@ export default function LoginContainer() {
   };
 
   return (
-    <LoginModal show={show} onClose={() => setShow(false)} onSubmit={handleLogin} loading={loading} error={error} />
+    <LoginForm show={show} onClose={() => setShow(false)} onSubmit={handleLogin} loading={loading} error={error} />
   );
 }
