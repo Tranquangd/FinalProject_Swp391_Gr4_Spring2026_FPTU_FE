@@ -31,9 +31,11 @@ export default function LoginContainer() {
       if (userData.role === "ADMIN") navigate("/admin");
       else if (userData.role === "LECTURER") navigate("/lecturer");
       else if (userData.role === "STUDENT") {
-  userData.isLeader
-    ? navigate("/student/leader")
-    : navigate("/student/member");
+  if (userData.role === "Leader") {
+  navigate("/student/leader");
+} else {
+  navigate("/student/member");
+}
 }
 
       setShow(false);

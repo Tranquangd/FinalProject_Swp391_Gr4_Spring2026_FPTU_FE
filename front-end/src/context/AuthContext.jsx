@@ -48,8 +48,8 @@ export function AuthProvider({ children }) {
   const isAdmin = user?.role === "ADMIN";
   const isLecturer = user?.role === "LECTURER";
   const isStudent = user?.role === "STUDENT";
-  const isLeader = isStudent && user?.isLeader;
-  const isMember = isStudent && !user?.isLeader;
+  const isLeader = user?.role === "LEADER";
+  const isMember = user?.role === "MEMBER";
 
   if (loading) return null;
 
