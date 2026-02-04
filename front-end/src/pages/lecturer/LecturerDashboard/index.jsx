@@ -1,4 +1,4 @@
-import LecturerDashboardContainer from '@/containers/LecturerDashboardContainer';
+import LecturerDashboardContainer from './LecturerDashboardContainer';
 
 export default function LecturerDashBoard() {
   return <LecturerDashboardContainer />;

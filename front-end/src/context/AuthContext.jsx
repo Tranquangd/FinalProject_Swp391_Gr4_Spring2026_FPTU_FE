@@ -27,13 +27,19 @@ export function AuthProvider({ children }) {
   }, []);
 
   /* Login */
-  const login = (userData) => {
+  const login = (authResponse) => {
+
+    const userData = {
+      id: authResponse.userId,
+      fullName: authResponse.fullName,
+      email: authResponse.email,
+      role: authResponse.role,
+      token: authResponse.token,
+    };
+
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));
-
-    if (userData.token) {
-      localStorage.setItem("token", userData.token);
-    }
+    localStorage.setItem("token", authResponse.token);
   };
 
   /* Logout */
@@ -48,8 +54,7 @@ export function AuthProvider({ children }) {
   const isAdmin = user?.role === "ADMIN";
   const isLecturer = user?.role === "LECTURER";
   const isStudent = user?.role === "STUDENT";
-  const isLeader = user?.role === "LEADER";
-  const isMember = user?.role === "MEMBER";
+  
 
   if (loading) return null;
 
@@ -63,8 +68,6 @@ export function AuthProvider({ children }) {
         isAdmin,
         isLecturer,
         isStudent,
-        isLeader,
-        isMember,
       }}
     >
       {children}

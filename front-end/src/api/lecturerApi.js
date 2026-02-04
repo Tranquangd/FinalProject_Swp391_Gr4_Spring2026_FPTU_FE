@@ -1,4 +1,4 @@
-import apiClient from "./axios";
+import apiClient from "./Axios";
 
 export const lecturerApi = {
   getGroups() {

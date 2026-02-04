@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { lecturerApi } from "@/api/lecturerApi";
-import { LecturerDashboard } from ".";
+import { lecturerApi } from "../../../api/lecturerApi";
+import  LecturerDashboard  from "./LecturerDashboardForm";
 
 export default function LecturerDashboardContainer() {
   const [groups, setGroups] = useState([]);
