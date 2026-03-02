@@ -9,14 +9,22 @@ export const lecturerApi = {
     return apiClient.get(`/groups/${groupId}/students`);
   },
 
-  getJiraTasks(groupId) {
-    return apiClient.get(`/groups/${groupId}/jira`);
+ getJiraTasks(projectId) {
+    return apiClient.get(`/jira/issues/project/${projectId}`);
   },
 
-  getProgressReports(groupId) {
-    return apiClient.get(`/groups/${groupId}/progress`);
+  getAllMemberStatistics(projectId) {
+    return apiClient.get(`/reports/project/${projectId}/members`);
   },
 
+  getMemberStatistics(projectId, userId) {
+    return apiClient.get(`/reports/project/${projectId}/member/${userId}`);
+  },
+
+  getLecturerOverview(lecturerId) {
+    return apiClient.get(`/reports/lecturer/${lecturerId}`);
+  },
+  
   getGithubStats(groupId) {
     return apiClient.get(`/groups/${groupId}/github`);
   },

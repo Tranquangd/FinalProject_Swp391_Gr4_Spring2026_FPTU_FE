@@ -7,23 +7,44 @@ export default function LecturerDashboardContainer() {
   const [selectedGroup, setSelectedGroup] = useState(null);
   const [students, setStudents] = useState([]);
   const [requirements, setRequirements] = useState([]);
-  const [progressReports, setProgressReports] = useState([]);
   const [commitStats, setCommitStats] = useState([]);
 
   useEffect(() => {
-    lecturerApi.getGroups().then((res) => {
-      setGroups(res.data);
-      setSelectedGroup(res.data[0]);
-    });
+    lecturerApi.getGroups()
+      .then((res) => {
+        setGroups(res.data);
+        if (res.data.length > 0) {
+          setSelectedGroup(res.data[0]);
+        }
+      })
+      .catch(err => console.error(err));
   }, []);
 
   useEffect(() => {
     if (!selectedGroup) return;
 
-    lecturerApi.getStudents(selectedGroup.id).then(res => setStudents(res.data));
-    lecturerApi.getJiraTasks(selectedGroup.id).then(res => setRequirements(res.data));
-    lecturerApi.getProgressReports(selectedGroup.id).then(res => setProgressReports(res.data));
-    lecturerApi.getGithubStats(selectedGroup.id).then(res => setCommitStats(res.data));
+    const groupId = selectedGroup.id;
+
+    // Students
+    lecturerApi.getStudents(groupId)
+      .then(res => setStudents(res.data))
+      .catch(err => console.error(err));
+
+    // Jira tasks
+    lecturerApi.getJiraTasks(groupId)
+      .then(res => setRequirements(res.data))
+      .catch(err => console.error(err));
+
+    // Member statistics 
+    lecturerApi.getAllMemberStatistics(groupId)
+      .then(res => setCommitStats(res.data))
+      .catch(err => console.error(err));
+
+    // Github stats 
+    lecturerApi.getGithubStats(groupId)
+      .then(res => console.log("Github stats:", res.data))
+      .catch(err => console.error(err));
+
   }, [selectedGroup]);
 
   return (
@@ -34,7 +55,6 @@ export default function LecturerDashboardContainer() {
       onSelectGroup={setSelectedGroup}
       students={students}
       requirements={requirements}
-      progressReports={progressReports}
       commitStats={commitStats}
     />
   );

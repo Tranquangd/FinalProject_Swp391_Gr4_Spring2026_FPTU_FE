@@ -66,7 +66,7 @@ export default function LecturerDashboard({
         <Col xs="auto">
           <Dropdown align="end">
             <Dropdown.Toggle variant="light" className="border">
-              <strong>{lecturer.fullName}</strong>
+              <strong>{lecturer.fullName || "Lecturer"}</strong>
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item>Profile</Dropdown.Item>
@@ -79,7 +79,7 @@ export default function LecturerDashboard({
 
       {/* ===== GROUPS ===== */}
       <Row className="mb-4">
-        {groups.map((group) => (
+        {groups?.map((group) => (
           <Col md={3} key={group.id}>
             <Card
               className={
@@ -192,7 +192,7 @@ export default function LecturerDashboard({
                     <Card.Body>
                       <strong>{p.week}</strong>
                       <ProgressBar
-                        now={(p.completed / p.total) * 100}
+                        now={p.total ? (p.completed / p.total) * 100 : 0}
                         label={`${p.completed}/${p.total}`}
                       />
                       <p className="mt-2">{p.note}</p>
@@ -213,7 +213,7 @@ export default function LecturerDashboard({
                   </thead>
                   <tbody>
                     {commitStats.map((c) => (
-                      <tr key={c.userId}>
+                      <tr key={c.userId || c.memberId}>
                         <td>{c.name}</td>
                         <td>{c.commits}</td>
                         <td>{c.lastCommitAt}</td>
