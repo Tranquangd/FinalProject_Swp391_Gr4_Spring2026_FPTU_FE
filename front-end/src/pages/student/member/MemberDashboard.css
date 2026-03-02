@@ -1,0 +1,272 @@
+.member-dashboard {
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 0% -10%, #fde68a 0%, rgba(253, 230, 138, 0) 60%),
+    radial-gradient(900px 500px at 100% 0%, #a7f3d0 0%, rgba(167, 243, 208, 0) 60%),
+    linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
+  color: #0f172a;
+}
+
+.md-title h1 {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.md-title p {
+  color: #475569;
+  margin-bottom: 0;
+}
+
+.md-title__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.md-profile {
+  border: 0;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+.md-profile__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 22px;
+}
+
+.md-profile__name {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.md-profile__meta {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.md-card {
+  border: 0;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.md-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.14);
+}
+
+.md-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.md-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.md-icon.tasks {
+  background: linear-gradient(135deg, #f97316, #fb7185);
+}
+
+.md-icon.focus {
+  background: linear-gradient(135deg, #22c55e, #3b82f6);
+}
+
+.md-icon.commits {
+  background: linear-gradient(135deg, #6366f1, #0ea5e9);
+}
+
+.md-card__title {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.md-card__value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.md-subtext {
+  color: #475569;
+  font-size: 14px;
+}
+
+.md-progress {
+  height: 12px;
+  border-radius: 999px;
+}
+
+.md-progress .progress-bar {
+  background: linear-gradient(90deg, #0ea5e9, #6366f1);
+}
+
+.md-surface {
+  border: 0;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.md-section-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.md-section-subtitle {
+  color: #64748b;
+}
+
+.md-select {
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 10px 12px;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.05);
+}
+
+.md-tabs {
+  gap: 10px;
+}
+
+.md-tabs .nav-link {
+  background: #e2e8f0;
+  color: #0f172a;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-weight: 600;
+}
+
+.md-tabs .nav-link.active {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.md-table {
+  margin-bottom: 0;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.md-table thead th {
+  color: #475569;
+  border-bottom: 0;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.md-table tbody tr {
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+  border-radius: 12px;
+}
+
+.md-table tbody tr td {
+  border-top: 0;
+  border-bottom: 0;
+  vertical-align: middle;
+  padding: 12px 14px;
+}
+
+.md-table tbody tr td:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+
+.md-table tbody tr td:last-child {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+
+.md-progress-small {
+  height: 10px;
+  border-radius: 999px;
+}
+
+.md-progress-small .progress-bar {
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.md-commit-card {
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+}
+
+.md-commit-card__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.md-commit-card__title {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.md-commit-card__sub {
+  font-size: 12px;
+  color: #cbd5f5;
+}
+
+.md-commit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.md-commit-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #cbd5f5;
+}
+
+.md-commit-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .md-title h1 {
+    font-size: 24px;
+  }
+
+  .md-profile {
+    width: 100%;
+  }
+
+  .md-table {
+    border-spacing: 0 6px;
+  }
+}
